@@ -1,4 +1,8 @@
 # calc
+---
+A crappy caclulator writen in Vue.js
+
+This app uses `eval()` to do calculations making it super easy to write
 
 ## Project setup
 ```
@@ -22,3 +26,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+# vue-calc
