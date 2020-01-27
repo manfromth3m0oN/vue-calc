@@ -1,8 +1,9 @@
 <template>
   <div class="parent">
-    <div class="display">{{disp}}</div>
+    <div v-if="disp == ''" class="display">0</div>
+    <div v-else class="display">{{disp}}</div>
     <div v-on:click="disp = ''" class="btn">C</div>
-    <div v-on:click="round()" class="btn">_</div>
+    <div v-on:click="disp += 'Ans'" class="btn">Ans</div>
     <div v-on:click="percent()" class="btn">%</div>
     <div v-on:click="disp += '÷'" class="btn operator">÷</div>
     <div v-on:click="disp += 7" class="btn">7</div>
@@ -28,13 +29,15 @@ export default {
   name: "Calc",
   data() {
     return {
-      disp: "0"
+      disp: "",
+      ans: "0"
     };
   },
   methods: {
     equals() {
-      console.log(this.disp.replace(/÷/g, '/').replace(/X/g, '*'))
-      this.disp = eval(this.disp.replace(/÷/g, '/').replace(/X/g, '*'))
+      console.log(this.disp.replace(/÷/g, '/').replace(/X/g, '*').replace(/([Ans])\w+/g, this.ans))
+      this.disp = eval(this.disp.replace(/÷/g, '/').replace(/X/g, '*').replace(/([Ans])\w+/g, this.ans))
+      this.ans = this.disp
     },
     percent() {
       this.disp = this.disp * 100 + '%'
