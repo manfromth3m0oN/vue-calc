@@ -1,5 +1,5 @@
 # calc
----
+
 A crappy caclulator writen in Vue.js
 
 This app uses `eval()` to do calculations making it super easy to write
